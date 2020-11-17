@@ -1,11 +1,4 @@
 <templateSet group="Magento2 XML">
-  <template name="page_layout" value="&lt;?xml version=&quot;1.0&quot;?&gt;&#10;&lt;page xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; &#10;        xsi:noNamespaceSchemaLocation=&quot;urn:magento:framework:View/Layout/etc/page_configuration.xsd&quot;&gt;&#10;    &lt;body&gt;&#10;        &lt;referenceContainer name=&quot;content&quot;&gt;&#10;            &lt;block class=&quot;$Class$&quot; name=&quot;$Name$&quot;/&gt;&#10;        &lt;/referenceContainer&gt;&#10;    &lt;/body&gt;&#10;&lt;/page&gt;" description="Magento layout" toReformat="false" toShortenFQNames="true">
-    <variable name="Class" expression="" defaultValue="" alwaysStopAt="true" />
-    <variable name="Name" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="true" />
-    <context>
-      <option name="XML" value="true" />
-    </context>
-  </template>
   <template name="config" value="&lt;?xml version=&quot;1.0&quot;?&gt;&#10;&lt;config xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&#10;        xsi:noNamespaceSchemaLocation=&quot;urn:magento:framework:ObjectManager/etc/config.xsd&quot;&gt;&#10;   &#10;&lt;/xml&gt;" description="Magento 2 Dependency Injection configuration" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="XML" value="true" />
@@ -31,6 +24,21 @@
   <template name="config_route" value="&lt;?xml version=&quot;1.0&quot;?&gt;&#10;&lt;config xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&#10;        xsi:noNamespaceSchemaLocation=&quot;urn:magento:framework:App/etc/routes.xsd&quot;&gt;&#10;    &lt;router id=&quot;admin&quot;&gt;&#10;        &lt;route id=&quot;$NAME$&quot; frontName=&quot;$NAME$&quot;&gt;&#10;            &lt;module name=&quot;$MODULE_NAMESPACE$&quot; before=&quot;Magento_Backend&quot; /&gt;&#10;        &lt;/route&gt;&#10;    &lt;/router&gt;&#10;&lt;/config&gt;" description="Magento 2 Route configuration" toReformat="false" toShortenFQNames="true">
     <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="MODULE_NAMESPACE" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="config_event" value="&lt;?xml version=&quot;1.0&quot;?&gt;&#10;&lt;config xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; &#10;        xsi:noNamespaceSchemaLocation=&quot;urn:magento:framework:Event/etc/events.xsd&quot;&gt;&#10;    &lt;event name=&quot;$MODULE_NAME$&quot;&gt;&#10;        &lt;observer name=&quot;$MODULE_NAME$&quot; instance=&quot;$MODULE_NAMESPACE$::$CLASSNAME$&quot;/&gt;&#10;    &lt;/event&gt;&#10;&lt;/config&gt;" description="Magento 2 Event xml configuration" toReformat="false" toShortenFQNames="true">
+    <variable name="MODULE_NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="MODULE_NAMESPACE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="CLASSNAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="di_preference" value="&lt;preference for=&quot;$ORIGIN$&quot; type=&quot;$OVERRIDE$&quot; /&gt;" description="Magento 2 preference" toReformat="false" toShortenFQNames="true">
+    <variable name="ORIGIN" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="OVERRIDE" expression="" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>
@@ -73,6 +81,13 @@
   <template name="ui_form" value="&lt;form xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&#10;      xsi:noNamespaceSchemaLocation=&quot;urn:magento:module:Magento_Ui:etc/ui_configuration.xsd&quot;&gt;&#10;&#10;    &lt;argument name=&quot;data&quot; xsi:type=&quot;array&quot;&gt;&#10;        &lt;item name=&quot;js_config&quot; xsi:type=&quot;array&quot;&gt;&#10;            &lt;item name=&quot;provider&quot; xsi:type=&quot;string&quot;&gt;$FILE_NAME$.$FILE_NAME$_data_source&lt;/item&gt;&#10;        &lt;/item&gt;&#10;        &lt;item name=&quot;label&quot; xsi:type=&quot;string&quot; translate=&quot;true&quot;&gt;$NAME$ Information&lt;/item&gt;&#10;        &lt;item name=&quot;template&quot; xsi:type=&quot;string&quot;&gt;templates/form/collapsible&lt;/item&gt;&#10;    &lt;/argument&gt;&#10;    &#10;    &lt;settings&gt;&#10;        &lt;buttons&gt;&#10;            &lt;!-- @TODO : Complete body --&gt;&#10;        &lt;/buttons&gt;&#10;        &lt;namespace&gt;$FILE_NAME$&lt;/namespace&gt;&#10;        &lt;dataScope&gt;data&lt;/dataScope&gt;&#10;        &lt;deps&gt;&#10;            &lt;dep&gt;$FILE_NAME$.$FILE_NAME$_data_source&lt;/dep&gt;&#10;        &lt;/deps&gt;&#10;    &lt;/settings&gt;&#10;    &#10;    &lt;dataSource name=&quot;$FILE_NAME$_data_source&quot;&gt;&#10;        &lt;!--@TODO : define body--&gt;&#10;    &lt;/dataSource&gt;&#10;    &#10;    &lt;fieldset name=&quot;general&quot;&gt;&#10;        &lt;!--@TODO : define body--&gt;&#10;    &lt;/fieldset&gt;&#10;&lt;/form&gt;" description="Magento 2 form UI Component" toReformat="false" toShortenFQNames="true">
     <variable name="NAME" expression="complete()" defaultValue="" alwaysStopAt="true" />
     <variable name="FILE_NAME" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="page_layout" value="&lt;?xml version=&quot;1.0&quot;?&gt;&#10;&lt;page xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; &#10;        xsi:noNamespaceSchemaLocation=&quot;urn:magento:framework:View/Layout/etc/page_configuration.xsd&quot;&gt;&#10;    &lt;body&gt;&#10;        &lt;referenceContainer name=&quot;content&quot;&gt;&#10;            &lt;block class=&quot;$Class$&quot; name=&quot;$Name$&quot;/&gt;&#10;        &lt;/referenceContainer&gt;&#10;    &lt;/body&gt;&#10;&lt;/page&gt;" description="Magento layout" toReformat="false" toShortenFQNames="true">
+    <variable name="Class" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="Name" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="true" />
     <context>
       <option name="XML" value="true" />
     </context>

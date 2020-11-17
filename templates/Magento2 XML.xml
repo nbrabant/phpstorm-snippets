@@ -1,0 +1,80 @@
+<templateSet group="Magento2 XML">
+  <template name="page_layout" value="&lt;?xml version=&quot;1.0&quot;?&gt;&#10;&lt;page xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; &#10;        xsi:noNamespaceSchemaLocation=&quot;urn:magento:framework:View/Layout/etc/page_configuration.xsd&quot;&gt;&#10;    &lt;body&gt;&#10;        &lt;referenceContainer name=&quot;content&quot;&gt;&#10;            &lt;block class=&quot;$Class$&quot; name=&quot;$Name$&quot;/&gt;&#10;        &lt;/referenceContainer&gt;&#10;    &lt;/body&gt;&#10;&lt;/page&gt;" description="Magento layout" toReformat="false" toShortenFQNames="true">
+    <variable name="Class" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="Name" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="config" value="&lt;?xml version=&quot;1.0&quot;?&gt;&#10;&lt;config xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&#10;        xsi:noNamespaceSchemaLocation=&quot;urn:magento:framework:ObjectManager/etc/config.xsd&quot;&gt;&#10;   &#10;&lt;/xml&gt;" description="Magento 2 Dependency Injection configuration" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="config_module" value="&lt;?xml version=&quot;1.0&quot;?&gt;&#10;&lt;config xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; &#10;        xsi:noNamespaceSchemaLocation=&quot;urn:magento:framework:Module/etc/module.xsd&quot;&gt;&#10;    &lt;module name=&quot;$MODULE_NAME$&quot; setup_version=&quot;0.0.0.0&quot; /&gt;&#10;&lt;/config&gt;" description="Magento 2 module configuration" toReformat="false" toShortenFQNames="true">
+    <variable name="MODULE_NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="config_acl" value="&lt;?xml version=&quot;1.0&quot;?&gt;&#10;&lt;config xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; &#10;        xsi:noNamespaceSchemaLocation=&quot;urn:magento:framework:Acl/etc/acl.xsd&quot;&gt;&#10;    &lt;acl&gt;&#10;        &lt;resources&gt;&#10;            &lt;resource id=&quot;Magento_Backend::admin&quot;&gt;&#10;                &lt;resource id=&quot;$MODULE_NAMESPACE$::$HEAD$&quot; title=&quot;$MODULE_NAME$&quot; sortOrder=&quot;100&quot; &gt;&#10;                    &lt;resource id=&quot;$MODULE_NAMESPACE$::$RESOURCE$&quot; title=&quot;$MODULE_NAME$&quot; sortOrder=&quot;10&quot;&gt;&#10;                        &lt;resource id=&quot;$MODULE_NAMESPACE$::$RESOURCE_SAVE$&quot; title=&quot;$MODULE_NAME$&quot; sortOrder=&quot;10&quot; /&gt;&#10;                        &lt;resource id=&quot;$MODULE_NAMESPACE$::$RESOURCE_DELETE$&quot; title=&quot;$MODULE_NAME$&quot; sortOrder=&quot;20&quot; /&gt;&#10;                    &lt;/resource&gt;&#10;                &lt;/resource&gt;&#10;            &lt;/resource&gt;&#10;        &lt;/resources&gt;&#10;    &lt;/acl&gt;&#10;&lt;/config&gt;" description="Magento 2 Access Level configuration" toReformat="false" toShortenFQNames="true">
+    <variable name="MODULE_NAMESPACE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="HEAD" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="MODULE_NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="RESOURCE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="RESOURCE_SAVE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="RESOURCE_DELETE" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="config_route" value="&lt;?xml version=&quot;1.0&quot;?&gt;&#10;&lt;config xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&#10;        xsi:noNamespaceSchemaLocation=&quot;urn:magento:framework:App/etc/routes.xsd&quot;&gt;&#10;    &lt;router id=&quot;admin&quot;&gt;&#10;        &lt;route id=&quot;$NAME$&quot; frontName=&quot;$NAME$&quot;&gt;&#10;            &lt;module name=&quot;$MODULE_NAMESPACE$&quot; before=&quot;Magento_Backend&quot; /&gt;&#10;        &lt;/route&gt;&#10;    &lt;/router&gt;&#10;&lt;/config&gt;" description="Magento 2 Route configuration" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="MODULE_NAMESPACE" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="di_virtual_provider" value="&lt;virtualType name=&quot;$PREFIX$GridDataProvider&quot; type=&quot;Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider&quot;&gt;&#10;    &lt;arguments&gt;&#10;        &lt;argument name=&quot;collection&quot; xsi:type=&quot;object&quot; shared=&quot;false&quot;&gt;$RESOURCE_COLLECTION$&lt;/argument&gt;&#10;        &lt;argument name=&quot;filterPool&quot; xsi:type=&quot;object&quot; shared=&quot;false&quot;&gt;$PREFIX$GridFilterPool&lt;/argument&gt; &lt;!-- Define new object for filters --&gt;&#10;    &lt;/arguments&gt;&#10;&lt;/virtualType&gt;" description="Magento 2 VirtualType for provider" toReformat="false" toShortenFQNames="true">
+    <variable name="PREFIX" expression="phpVar" defaultValue="" alwaysStopAt="true" />
+    <variable name="RESOURCE_COLLECTION" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="di_virtual_filter" value="&lt;virtualType name=&quot;$PREFIX$GridFilterPool&quot; type=&quot;Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool&quot;&gt;&#10;    &lt;arguments&gt;&#10;        &lt;argument name=&quot;appliers&quot; xsi:type=&quot;array&quot;&gt;&#10;            &lt;item name=&quot;regular&quot; xsi:type=&quot;object&quot;&gt;Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter&lt;/item&gt;&#10;            &lt;item name=&quot;fulltext&quot; xsi:type=&quot;object&quot;&gt;Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter&lt;/item&gt;&#10;        &lt;/argument&gt;&#10;    &lt;/arguments&gt;&#10;&lt;/virtualType&gt;" description="Magento 2 VirtualType Pool for filterpool" toReformat="false" toShortenFQNames="true">
+    <variable name="PREFIX" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="di_virtual_collection" value="&lt;virtualType name=&quot;$COLLECTION_NAMESPACE$&quot; type=&quot;Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult&quot;&gt;&#10;    &lt;arguments&gt;&#10;        &lt;argument name=&quot;mainTable&quot; xsi:type=&quot;string&quot;&gt;$TABLE_NAME$&lt;/argument&gt;&#10;        &lt;argument name=&quot;resourceModel&quot; xsi:type=&quot;string&quot;&gt;$RESOURCE_MODEL$&lt;/argument&gt;&#10;    &lt;/arguments&gt;&#10;&lt;/virtualType&gt;" description="Magento 2 VirtualType for collection" toReformat="false" toShortenFQNames="true">
+    <variable name="COLLECTION_NAMESPACE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="TABLE_NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="RESOURCE_MODEL" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="di_type" value="&lt;type name=&quot;Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory&quot;&gt;&#10;    &lt;arguments&gt;&#10;        &lt;argument name=&quot;collections&quot; xsi:type=&quot;array&quot;&gt;&#10;            &lt;item name=&quot;$COLLECTION_NAME$&quot; xsi:type=&quot;string&quot;&gt;$VIRTUAL_COLLECTION$&lt;/item&gt;&#10;        &lt;/argument&gt;&#10;    &lt;/arguments&gt;&#10;&lt;/type&gt;" description="Magento 2  Type for collection" toReformat="false" toShortenFQNames="true">
+    <variable name="COLLECTION_NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="VIRTUAL_COLLECTION" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="ui_listing" value="&lt;listing xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&#10;         xsi:noNamespaceSchemaLocation=&quot;urn:magento:module:Magento_Ui:etc/ui_configuration.xsd&quot;&gt;&#10;         &#10;    &lt;!-- Integration --&gt;&#10;    &lt;argument name=&quot;data&quot; xsi:type=&quot;array&quot;&gt;&#10;        &lt;item name=&quot;js_config&quot; xsi:type=&quot;array&quot;&gt;&#10;            &lt;!-- we define a provider --&gt;&#10;            &lt;item name=&quot;provider&quot; xsi:type=&quot;string&quot;&gt;$FILE_NAME$.$FILE_NAME$_data_source&lt;/item&gt;&#10;        &lt;/item&gt;&#10;    &lt;/argument&gt;&#10;    &#10;    &lt;!-- Settings --&gt;&#10;    &lt;settings&gt;&#10;        &lt;buttons&gt;&#10;            &lt;button name=&quot;add&quot;&gt;&#10;                &lt;url path=&quot;*/*/new&quot;/&gt;&#10;                &lt;class&gt;primary&lt;/class&gt;&#10;                &lt;label translate=&quot;true&quot;&gt;Add new $NAME$&lt;/label&gt;&#10;            &lt;/button&gt;&#10;        &lt;/buttons&gt;&#10;        &lt;spinner&gt;$FILE_NAME$_columns&lt;/spinner&gt;&#10;        &lt;deps&gt;&#10;            &lt;dep&gt;$FILE_NAME$.$FILE_NAME$_data_source&lt;/dep&gt;&#10;        &lt;/deps&gt;&#10;    &lt;/settings&gt;&#10;    &#10;    &lt;!-- Data source --&gt;&#10;    &lt;dataSource name=&quot;$FILE_NAME$_data_source&quot;&gt;&#10;        &lt;!--@TODO : define body--&gt;&#10;    &lt;/dataSource&gt;&#10;    &#10;    &lt;!-- Container Listing Top --&gt;&#10;    &lt;listingToolbar name=&quot;listing_top&quot;&gt;&#10;        &lt;!--@TODO : define body--&gt;&#10;    &lt;/listingToolbar&gt;&#10;    &#10;    &lt;columns name=&quot;$FILE_NAME$_columns&quot;&gt;&#10;        &lt;!--@TODO : define body--&gt;&#10;    &lt;/columns&gt;&#10; &lt;/listing&gt;" description="Magento 2 listing UI Component" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="FILE_NAME" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+  <template name="ui_form" value="&lt;form xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&#10;      xsi:noNamespaceSchemaLocation=&quot;urn:magento:module:Magento_Ui:etc/ui_configuration.xsd&quot;&gt;&#10;&#10;    &lt;argument name=&quot;data&quot; xsi:type=&quot;array&quot;&gt;&#10;        &lt;item name=&quot;js_config&quot; xsi:type=&quot;array&quot;&gt;&#10;            &lt;item name=&quot;provider&quot; xsi:type=&quot;string&quot;&gt;$FILE_NAME$.$FILE_NAME$_data_source&lt;/item&gt;&#10;        &lt;/item&gt;&#10;        &lt;item name=&quot;label&quot; xsi:type=&quot;string&quot; translate=&quot;true&quot;&gt;$NAME$ Information&lt;/item&gt;&#10;        &lt;item name=&quot;template&quot; xsi:type=&quot;string&quot;&gt;templates/form/collapsible&lt;/item&gt;&#10;    &lt;/argument&gt;&#10;    &#10;    &lt;settings&gt;&#10;        &lt;buttons&gt;&#10;            &lt;!-- @TODO : Complete body --&gt;&#10;        &lt;/buttons&gt;&#10;        &lt;namespace&gt;$FILE_NAME$&lt;/namespace&gt;&#10;        &lt;dataScope&gt;data&lt;/dataScope&gt;&#10;        &lt;deps&gt;&#10;            &lt;dep&gt;$FILE_NAME$.$FILE_NAME$_data_source&lt;/dep&gt;&#10;        &lt;/deps&gt;&#10;    &lt;/settings&gt;&#10;    &#10;    &lt;dataSource name=&quot;$FILE_NAME$_data_source&quot;&gt;&#10;        &lt;!--@TODO : define body--&gt;&#10;    &lt;/dataSource&gt;&#10;    &#10;    &lt;fieldset name=&quot;general&quot;&gt;&#10;        &lt;!--@TODO : define body--&gt;&#10;    &lt;/fieldset&gt;&#10;&lt;/form&gt;" description="Magento 2 form UI Component" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="complete()" defaultValue="" alwaysStopAt="true" />
+    <variable name="FILE_NAME" expression="fileNameWithoutExtension()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
+</templateSet>

@@ -1,5 +1,5 @@
 <templateSet group="Magento2 XML">
-  <template name="config" value="&lt;?xml version=&quot;1.0&quot;?&gt;&#10;&lt;config xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&#10;        xsi:noNamespaceSchemaLocation=&quot;urn:magento:framework:ObjectManager/etc/config.xsd&quot;&gt;&#10;   &#10;&lt;/xml&gt;" description="Magento 2 Dependency Injection configuration" toReformat="false" toShortenFQNames="true">
+  <template name="config" value="&lt;?xml version=&quot;1.0&quot;?&gt;&#10;&lt;config xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&#10;        xsi:noNamespaceSchemaLocation=&quot;urn:magento:framework:ObjectManager/etc/config.xsd&quot;&gt;&#10;   &#10;&lt;/config&gt;" description="Magento 2 Dependency Injection configuration" toReformat="false" toShortenFQNames="true">
     <context>
       <option name="XML" value="true" />
     </context>

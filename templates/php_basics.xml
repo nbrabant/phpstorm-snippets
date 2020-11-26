@@ -1,0 +1,24 @@
+<templateSet group="PHP basics">
+  <template name="trycatch" value="try {&#10;    $EXPRESSION$&#10;} catch(\Exception $e) {&#10;    //$this-&gt;logger-&gt;error($e-&gt;getMessage());&#10;}" description="try catch body" toReformat="false" toShortenFQNames="true">
+    <variable name="EXPRESSION" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+      <option name="PHP Comment" value="false" />
+      <option name="PHP String Literal" value="false" />
+    </context>
+  </template>
+  <template name="dd" value="echo '&lt;pre&gt;'; &#10;var_dump($EXPRESSION$); &#10;echo '&lt;/pre&gt;'; &#10;die;" description="formatted var_dump + die" toReformat="false" toShortenFQNames="true">
+    <variable name="EXPRESSION" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="PHP" value="true" />
+      <option name="PHP Comment" value="false" />
+      <option name="PHP String Literal" value="false" />
+    </context>
+  </template>
+  <template name="vd" value="&lt;?php var_dump($EXPRESSION$); ?&gt;" description="vardump block" toReformat="false" toShortenFQNames="true">
+    <variable name="EXPRESSION" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="HTML_TEXT" value="true" />
+    </context>
+  </template>
+</templateSet>

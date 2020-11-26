@@ -5,4 +5,9 @@
       <option name="PHP Statement" value="true" />
     </context>
   </template>
+  <template name="dd" value="echo '<pre>'; var_dump($EXPRESSION$); echo '</pre>'; die;" description="formatted var_dump + die" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="EXPRESSION" value="true" />
+    </context>
+  </template>
 </templateSet>

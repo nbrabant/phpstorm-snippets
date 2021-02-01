@@ -21,6 +21,17 @@
       <option name="XML" value="true" />
     </context>
   </template>
+  <template name="config_menu" value="&lt;?xml version=&quot;1.0&quot;?&gt;&#10;&lt;config xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; &#10;    xsi:noNamespaceSchemaLocation=&quot;urn:magento:module:Magento_Backend:etc/menu.xsd&quot;&gt;&#10;    &lt;menu&gt;&#10;        &lt;add id=&quot;$MODULE_NAMESPACE$::$HEAD$&quot; title=&quot;$MODULE_NAME$&quot; translate=&quot;title&quot; module=&quot;$MODULE_NAMESPACE$&quot; sortOrder=&quot;20&quot; parent=&quot;Magento_Backend::$PARENT$&quot; dependsOnModule=&quot;$MODULE_NAMESPACE$&quot; resource=&quot;$MODULE_NAMESPACE$::$HEAD$&quot;/&gt;&#10;        &lt;add id=&quot;$MODULE_NAMESPACE$::$RESOURCE$&quot; title=&quot;$MODULE_NAME$&quot; translate=&quot;title&quot; module=&quot;$MODULE_NAMESPACE$&quot; sortOrder=&quot;10&quot; parent=&quot;$MODULE_NAMESPACE$::$HEAD$&quot; action=&quot;$ENDPOINT$&quot; resource=&quot;$MODULE_NAMESPACE$::$RESOURCE$&quot;/&gt;&#10;    &lt;/menu&gt;&#10;&lt;/config&gt;" description="Magento 2 config menu for admin panel" toReformat="false" toShortenFQNames="true">
+    <variable name="MODULE_NAMESPACE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="HEAD" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="MODULE_NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="RESOURCE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="PARENT" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="ENDPOINT" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="XML" value="true" />
+    </context>
+  </template>
   <template name="config_route" value="&lt;?xml version=&quot;1.0&quot;?&gt;&#10;&lt;config xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&#10;        xsi:noNamespaceSchemaLocation=&quot;urn:magento:framework:App/etc/routes.xsd&quot;&gt;&#10;    &lt;router id=&quot;admin&quot;&gt;&#10;        &lt;route id=&quot;$NAME$&quot; frontName=&quot;$NAME$&quot;&gt;&#10;            &lt;module name=&quot;$MODULE_NAMESPACE$&quot; before=&quot;Magento_Backend&quot; /&gt;&#10;        &lt;/route&gt;&#10;    &lt;/router&gt;&#10;&lt;/config&gt;" description="Magento 2 Route configuration" toReformat="false" toShortenFQNames="true">
     <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
     <variable name="MODULE_NAMESPACE" expression="" defaultValue="" alwaysStopAt="true" />
